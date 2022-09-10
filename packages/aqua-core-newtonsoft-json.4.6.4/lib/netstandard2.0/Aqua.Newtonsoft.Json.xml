@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aqua.Newtonsoft.Json</name>
+    </assembly>
+    <members>
+        <member name="M:Aqua.JsonSerializerSettingsExtensions.ConfigureAqua(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Sets the <see cref="T:Aqua.AquaContractResolver"/> in <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>,
+            decorating a previousely set <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/> if required.
+            </summary>
+        </member>
+    </members>
+</doc>

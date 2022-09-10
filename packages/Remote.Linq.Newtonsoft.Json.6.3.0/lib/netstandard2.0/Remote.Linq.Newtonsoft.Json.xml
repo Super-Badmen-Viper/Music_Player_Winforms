@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Remote.Linq.Newtonsoft.Json</name>
+    </assembly>
+    <members>
+        <member name="M:Remote.Linq.JsonSerializerSettingsExtensions.ConfigureRemoteLinq(Newtonsoft.Json.JsonSerializerSettings)">
+            <summary>
+            Sets the <see cref="T:Remote.Linq.RemoteLinqContractResolver"/> in <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>,
+            decorating a previousely set <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/> if required.
+            </summary>
+        </member>
+    </members>
+</doc>

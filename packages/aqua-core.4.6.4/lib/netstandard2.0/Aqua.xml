@@ -1,0 +1,447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Aqua</name>
+    </assembly>
+    <members>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class, setting the specified type.
+            </summary>
+            <param name="type">The type to be set.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(Aqua.TypeSystem.TypeInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class, setting the specified type.
+            </summary>
+            <param name="type">The type to be set.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(Aqua.TypeSystem.TypeInfo,Aqua.Dynamic.PropertySet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class,
+            setting the specified <see cref="T:Aqua.TypeSystem.TypeInfo"/> and <see cref="T:Aqua.Dynamic.PropertySet"/>.
+            </summary>
+            <param name="type">The type to be set.</param>
+            <param name="propertySet">The property set.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class, setting the specified members.
+            </summary>
+            <param name="properties">Initial collection of properties and values.</param>
+            <exception cref="T:System.ArgumentNullException">The specified members collection is null.</exception>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(System.Collections.Generic.IEnumerable{Aqua.Dynamic.Property})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class, setting the specified members.
+            </summary>
+            <param name="properties">Initial collection of properties and values.</param>
+            <exception cref="T:System.ArgumentNullException">The specified members collection is null.</exception>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(System.Object,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class,
+            representing the object structure defined by the specified object.
+            </summary>
+            <param name="obj">The object to be represented by the new dynamic object.</param>
+            <param name="mapper">Optional instance of dynamic object mapper.</param>
+            <exception cref="T:System.ArgumentNullException">The specified object is null.</exception>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.#ctor(Aqua.Dynamic.DynamicObject,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObject"/> class.
+            </summary>
+            <param name="dynamicObject">The instance to copy.</param>
+            <param name="deepCopy">If true re-creates <see cref="T:Aqua.Dynamic.Property"/> instances, otherwise fills existing <see cref="T:Aqua.Dynamic.Property"/> instances into a new <see cref="T:Aqua.Dynamic.PropertySet"/>.</param>
+            <exception cref="T:System.ArgumentNullException">The specified members collection is null.</exception>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObject.Type">
+            <summary>
+            Gets or sets the type of object represented by this dynamic object instance.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObject.PropertyCount">
+            <summary>
+            Gets the count of members (dynamically added properties) hold by this dynamic object.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObject.PropertyNames">
+            <summary>
+            Gets a collection of member names hold by this dynamic object.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObject.Values">
+            <summary>
+            Gets a collection of member values hold by this dynamic object.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObject.Item(System.String)">
+            <summary>
+            Gets or sets a member value.
+            </summary>
+            <param name="name">Name of the member to set or get.</param>
+            <returns>Value of the member specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Set(System.String,System.Object)">
+            <summary>
+            Sets a member and it's value.
+            </summary>
+            <param name="name">Name of the member to be assigned.</param>
+            <param name="value">The value to be set.</param>
+            <returns>The value specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Get(System.String)">
+            <summary>
+            Gets a member's value or null if the specified member is unknown.
+            </summary>
+            <returns>The value assigned to the member specified, null if member is not set.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Get``1(System.String)">
+            <summary>
+            Gets a member's value or default(T) if the specified member is null or unknown.
+            </summary>
+            <returns>The value assigned to the member specified, default(T) if member is null or not set.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Add(System.String,System.Object)">
+            <summary>
+            Adds a property and it's value.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Add(Aqua.Dynamic.Property)">
+            <summary>
+            Adds a property.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Remove(System.String)">
+            <summary>
+            Removes a member and it's value.
+            </summary>
+            <returns>True if the member is successfully found and removed; otherwise, false.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.TryGet(System.String,System.Object@)">
+            <summary>
+            Gets the value assigned to the specified member.
+            </summary>
+            <param name="name">The name of the member.</param>
+            <param name="value">When this method returns, contains the value assgned with the specified member,
+            if the member is found; null if the member is not found.</param>
+            <returns>True is the dynamic object contains a member with the specified name; otherwise false.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObject.Create(System.Object,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates a dynamic objects representing the object structure defined by the specified object.
+            </summary>
+            <param name="obj">The object to be represented by the new dynamic object.</param>
+            <param name="mapper">Optional instance of dynamic object mapper.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectExtensions.CreateObject(Aqua.Dynamic.DynamicObject,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of the object represented by the dynamic object specified.
+            </summary>
+            <param name="dynamicObject">The <see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <remarks>Requires the Type property to be set on this dynamic object.</remarks>
+            <param name="mapper">Optional instance of dynamic object mapper.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectExtensions.CreateObject(Aqua.Dynamic.DynamicObject,System.Type,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of the object type specified and populates the object structure represented by this dynamic object.
+            </summary>
+            <param name="dynamicObject">The <see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <param name="type">Type of object to be created.</param>
+            <param name="mapper">Optional instance of dynamic object mapper.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectExtensions.CreateObject``1(Aqua.Dynamic.DynamicObject,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of the object type specified and populates the object structure represented by this dynamic object.
+            </summary>
+            <param name="dynamicObject">The <see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <typeparam name="T">Type of object to be created.</typeparam>
+            <param name="mapper">Optional instance of dynamic object mapper.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.ToContext.TryGetOrCreateNew(System.Type,System.Object,System.Func{System.Type,System.Object,System.Func{System.Type,System.Boolean},Aqua.Dynamic.DynamicObject},System.Action{System.Type,System.Object,Aqua.Dynamic.DynamicObject,System.Func{System.Type,System.Boolean}},System.Func{System.Type,System.Boolean})">
+            <summary>
+            Returns an existing instance if found in the reference map, creates a new instance otherwise.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.FromContext.TryGetOrCreateNew(System.Type,Aqua.Dynamic.DynamicObject,System.Func{System.Type,Aqua.Dynamic.DynamicObject,System.Object},System.Action{System.Type,Aqua.Dynamic.DynamicObject,System.Object})">
+            <summary>
+            Returns an existing instance if found in the reference map, creates a new instance otherwise.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.#ctor(Aqua.TypeSystem.ITypeResolver,Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.DynamicObjectMapperSettings,Aqua.Dynamic.IIsKnownTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObjectMapper"/> class.
+            </summary>
+            <param name="typeResolver">Provides a hook for custom logic for type resolution when mapping from <see cref="T:Aqua.Dynamic.DynamicObject"/>.</param>
+            <param name="typeInfoProvider">Provides a hook for mapping type information when mapping to <see cref="T:Aqua.Dynamic.DynamicObject"/>.</param>
+            <param name="settings">Optional settings for dynamic object mapping.</param>
+            <param name="isKnownTypeProvider">Optional instance to decide whether a type requires to be mapped into a <see cref="T:Aqua.Dynamic.DynamicObject"/>, know types do not get mapped.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.#ctor(Aqua.Dynamic.DynamicObjectMapperSettings,Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.ITypeMapper,Aqua.Dynamic.IDynamicObjectFactory,Aqua.Dynamic.IIsKnownTypeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.Dynamic.DynamicObjectMapper"/> class.
+            </summary>
+            <param name="settings">Optional settings for dynamic object mapping.</param>
+            <param name="typeResolver">Optional instance to be used to resolve types.</param>
+            <param name="typeMapper">This optional parameter allows mapping type information which get set into the <see cref="T:Aqua.Dynamic.DynamicObject"/>s upon their creation.</param>
+            <param name="dynamicObjectFactory">This optional parameter allows injection of a custom factory for <see cref="T:Aqua.Dynamic.DynamicObject"/>.</param>
+            <param name="isKnownTypeProvider">Optional instance to decide whether a type requires to be mapped into a <see cref="T:Aqua.Dynamic.DynamicObject"/>, know types do not get mapped.</param>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.Map(Aqua.Dynamic.DynamicObject,System.Type)">
+            <summary>
+            Maps a <see cref="T:Aqua.Dynamic.DynamicObject"/> into a collection of objects.
+            </summary>
+            <param name="obj"><see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <param name="type">Target type for mapping, set this parameter to null if type information included within <see cref="T:Aqua.Dynamic.DynamicObject"/> should be used.</param>
+            <returns>The object created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/> specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.Map``1(Aqua.Dynamic.DynamicObject)">
+            <summary>
+            Maps a <see cref="T:Aqua.Dynamic.DynamicObject"/> into an instance of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The target type in which the <see cref="T:Aqua.Dynamic.DynamicObject"/> have to be mapped to.</typeparam>
+            <param name="obj"><see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <returns>The object created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/> specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.Map``1(System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject})">
+            <summary>
+            Maps a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s into a collection of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The target type in which the <see cref="T:Aqua.Dynamic.DynamicObject"/> have to be mapped to.</typeparam>
+            <param name="objects">Collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s to be mapped.</param>
+            <returns>Collection of <typeparamref name="T"/> created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/>s specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapCollection(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Maps a collection of objects into a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="obj">The object to be mapped.</param>
+            <param name="setTypeInformation">Set this parameter to true if type information should be included within the <see cref="T:Aqua.Dynamic.DynamicObject"/>s, set it to false otherwise.</param>
+            <returns>A collection of <see cref="T:Aqua.Dynamic.DynamicObject"/> representing the objects specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapObject(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Mapps the specified instance into a <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <remarks>Null references and <see cref="T:Aqua.Dynamic.DynamicObject"/> are not mapped.</remarks>
+            <param name="obj">The instance to be mapped.</param>
+            <param name="setTypeInformation">Set this parameter to true if type information should be included within the <see cref="T:Aqua.Dynamic.DynamicObject"/>, set it to false otherwise.</param>
+            <returns>An instance of <see cref="T:Aqua.Dynamic.DynamicObject"/> representing the mapped instance.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapFromDynamicObjectGraph(System.Object,System.Type)">
+            <summary>
+            Maps an item of an object graph of <see cref="T:Aqua.Dynamic.DynamicObject"/> back into its normal representation.
+            May be overridden in a derived class to implement a customized mapping strategy.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapToDynamicObjectGraph(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Maps an item of an object graph into a <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            May be overridden in a derived class to implement a customized mapping strategy.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.ShouldMapToDynamicObject(System.Collections.IEnumerable)">
+            <summary>
+            When overridden in a derived class, determines whether a collection should be mapped into a single <see cref="T:Aqua.Dynamic.DynamicObject"/>,
+            rather than into a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s. Default is false.
+            </summary>
+            <returns>True if the collection should be mapped into a single <see cref="T:Aqua.Dynamic.DynamicObject"/>, false if each element should be mapped separately. Default is false.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapInternal(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Maps an object to a dynamic object.
+            </summary>
+            <remarks>Null references and dynamic objects are not mapped.</remarks>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapToDynamicObjectIfRequired(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Maps from object to dynamic object if required.
+            </summary>
+            <remarks>Null references, strings, value types, and dynamic objects are no mapped.</remarks>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.PopulateObjectMembers(System.Type,System.Object,Aqua.Dynamic.DynamicObject,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Extrancts member values from source object and populates to dynamic object.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.GetPropertiesForMapping(System.Type)">
+            <summary>
+            Can be overriden in a derived class to return a list of <see cref="T:System.Reflection.PropertyInfo"/> for a given type or null if defaul behaviour should be applied.
+            </summary>
+            <returns>If overriden in a derived class, returns a list of <see cref="T:System.Reflection.PropertyInfo"/> for a given type or null if defaul behaviour should be applied.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.GetFieldsForMapping(System.Type)">
+            <summary>
+            Can be overriden in a derived class to return a list of <see cref="T:System.Reflection.FieldInfo"/> for a given type or null if defaul behaviour should be applied.
+            </summary>
+            <returns>If overriden in a derived class, returns a list of <see cref="T:System.Reflection.FieldInfo"/> for a given type or null if defaul behaviour should be applied.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.GetUninitializedObject(System.Type)">
+            <summary>
+            Gets an uninitialized instance of the specified type by using <see cref="T:System.Runtime.Serialization.FormatterServices" />.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.PopulateObjectMembers(System.Type,Aqua.Dynamic.DynamicObject,System.Object)">
+            <summary>
+            Populate object members type by using <see cref="T:System.Runtime.Serialization.FormatterServices" />.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.DynamicObjectMapper.MapObjectMembers(System.Type,System.Object,Aqua.Dynamic.DynamicObject,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Retrieves object members type by using <see cref="T:System.Runtime.Serialization.FormatterServices" /> and populates dynamic object.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObjectMapperSettings.SilentlySkipUnassignableMembers">
+            <summary>
+            Gets or sets a value indicating whether unasignalbe members should be skipped silenly.
+            If set to true properties which cannot be assigned due to a type mismatch are silently skipped,
+            if set to false no validation will be performed resulting in an exception when trying to assign a property value with an unmatching type.
+            The default value is. <code>true</code>.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObjectMapperSettings.FormatPrimitiveTypesAsString">
+            <summary>
+            Gets or sets a value indicating whether native values should be formatted as strings.
+            If set to true all native type values are stored as strings, ohterwise primitive values get stored with no transformation.
+            The default value is. <code>false</code>.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObjectMapperSettings.FormatNativeTypesAsString">
+            <summary>
+            Gets or sets a value indicating whether native values (numeric, datetime, etc.) should be formatted as strings.
+            If set to true all native type values are stored as strings, ohterwise native values get stored with no transformation.
+            The default value is. <code>false</code>.
+            </summary>
+        </member>
+        <member name="P:Aqua.Dynamic.DynamicObjectMapperSettings.UtilizeFormatterServices">
+            <summary>
+            Gets or sets a value indicating whether serializable types should be formatted using <see cref="T:System.Runtime.Serialization.FormatterServices"/>.
+            The default value is. <code>true</code>.
+            </summary>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.Map(Aqua.Dynamic.DynamicObject,System.Type)">
+            <summary>
+            Maps a <see cref="T:Aqua.Dynamic.DynamicObject"/> into a collection of objects.
+            </summary>
+            <param name="obj"><see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <param name="targetType">Target type for mapping, set this parameter to null if type information included within <see cref="T:Aqua.Dynamic.DynamicObject"/> should be used.</param>
+            <returns>The object created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/> specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.Map``1(Aqua.Dynamic.DynamicObject)">
+            <summary>
+            Maps a <see cref="T:Aqua.Dynamic.DynamicObject"/> into an instance of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The target type in which the <see cref="T:Aqua.Dynamic.DynamicObject"/> have to be mapped to.</typeparam>
+            <param name="obj"><see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <returns>The object created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/> specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.Map(System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject},System.Type)">
+            <summary>
+            Maps a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s into a collection of objects.
+            </summary>
+            <param name="objects">Collection of <see cref="T:Aqua.Dynamic.DynamicObject"/> to be mapped.</param>
+            <param name="targetType">Target type for mapping, set this parameter to null if type information included within individual <see cref="T:Aqua.Dynamic.DynamicObject"/>s should be used.</param>
+            <returns>Collection of objects created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/>s specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.Map``1(System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject})">
+            <summary>
+            Maps a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s into a collection of <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The target type in which the <see cref="T:Aqua.Dynamic.DynamicObject"/> have to be mapped to.</typeparam>
+            <param name="objects">Collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>s to be mapped.</param>
+            <returns>Collection of <typeparamref name="T"/> created based on the <see cref="T:Aqua.Dynamic.DynamicObject"/>s specified.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.MapObject(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Mapps the specified instance into a <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="obj">The instance to be mapped.</param>
+            <param name="setTypeInformation">Type information is included within the <see cref="T:Aqua.Dynamic.DynamicObject"/> if lambda is null or returns true, no type information is set otherwise.</param>
+            <returns>An instance of <see cref="T:Aqua.Dynamic.DynamicObject"/> representing the mapped instance.</returns>
+        </member>
+        <member name="M:Aqua.Dynamic.IDynamicObjectMapper.MapCollection(System.Object,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Maps a collection of objects into a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="objects">The objects to be mapped.</param>
+            <param name="setTypeInformation">Type information is included within the <see cref="T:Aqua.Dynamic.DynamicObject"/>s if lambda is null or returns true, no type information is set otherwise.</param>
+            <returns>A collection of <see cref="T:Aqua.Dynamic.DynamicObject"/> representing the objects specified.</returns>
+        </member>
+        <member name="T:Aqua.Dynamic.UnmappedAttribute">
+            <summary>
+            Prevents annotated members to be mapped into <see cref="T:Aqua.Dynamic.DynamicObject"/>
+            using <see cref="T:Aqua.Dynamic.DynamicObjectMapper"/>.
+            </summary>
+        </member>
+        <member name="M:Aqua.Extensions.EnumerableExtensions.CollectionEquals``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Compares two collections for equality considering the same number of equal elements regardles of the elements sort oders.
+            </summary>
+            <returns>True if the collections are equal, false otherwise.</returns>
+        </member>
+        <member name="M:Aqua.Extensions.EnumerableExtensions.CollectionEquals``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Compares two collections for equality considering the same number of equal elements regardles of the elements sort oders.
+            </summary>
+            <returns>True if the collections are equal, false otherwise.</returns>
+        </member>
+        <member name="M:Aqua.Extensions.EnumerableExtensions.GetCollectionHashCode``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Computes a collection's hash code based on the elements contained. The hash code is not affected by the sort order.
+            </summary>
+            <returns>The collection's hash code.</returns>
+        </member>
+        <member name="M:Aqua.Extensions.EnumerableExtensions.GetCollectionHashCode``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Computes a collection's hash code based on the elements contained. The hash code is not affected by the sort order.
+            </summary>
+            <returns>The collection's hash code.</returns>
+        </member>
+        <member name="T:Aqua.TransparentCache`2">
+            <summary>
+            A weak-reference cache that can be hooked-in method calls to serve cached instances
+            or transparently create the requested value if not contained in cache.
+            </summary>
+        </member>
+        <member name="M:Aqua.TransparentCache`2.#ctor(System.Int32,System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Aqua.TransparentCache`2"/> class.
+            </summary>
+            <param name="cleanupDelay">Number of milliseconds to delay the task to clean-up stale references. Set to -1 to suppress clean-up or 0 to run clean-up synchronously.</param>
+            <param name="comparer">Optional comparer for cache keys.</param>
+        </member>
+        <member name="M:Aqua.TransparentCache`2.GetOrCreate(`0,System.Func{`0,`1})">
+            <summary>
+            Returns the cached value if it's contained in the cache, otherwise it creates and adds the value to the cache.
+            </summary>
+            <remarks>
+            This method also performes a cleanup of stale references according the cleanup-delay specified via cunstructor parameter.
+            The cleanup task is started only if no other cleanup is pending.
+            </remarks>
+        </member>
+        <member name="M:Aqua.TransparentCache`2.CleanUpStaleReferences">
+            <summary>
+            Removed cached items with stale references.
+            </summary>
+        </member>
+        <member name="P:Aqua.TypeSystem.TypeInfo.Type">
+            <summary>
+            Gets <see cref="P:Aqua.TypeSystem.TypeInfo.Type"/> by resolving this <see cref="T:Aqua.TypeSystem.TypeInfo"/> instance using the default <see cref="T:Aqua.TypeSystem.TypeResolver"/>.
+            </summary>
+        </member>
+        <member name="P:Aqua.TypeSystem.TypeResolver.Instance">
+            <summary>
+            Gets or sets an instance of ITypeResolver.
+            </summary>
+            <remarks>
+            Setting this property allows for registring a custom type resolver statically.
+            Setting this property to null makes it fall-back to the default resolver.
+            </remarks>
+        </member>
+    </members>
+</doc>

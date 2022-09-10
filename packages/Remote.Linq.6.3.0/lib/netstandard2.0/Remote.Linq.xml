@@ -1,0 +1,859 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Remote.Linq</name>
+    </assembly>
+    <members>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create(System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create``1(System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create(System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create``1(System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1"/> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create``1(System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``0}},Remote.Linq.IAsyncQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.AsyncRemoteQueryable.Create``2(System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``1}},Remote.Linq.IAsyncQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="T:Remote.Linq.DynamicQuery.ConstantQueryArgument">
+            <summary>
+            This type is used to wrap complex constant query argument values in <see cref="T:Remote.Linq.Expressions.ConstantExpression"/>.
+            It is used in particular to substitute anonymous types within linq expressions.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.DynamicQuery.QueryFunctions">
+            <summary>
+              <para>
+                Provides query extension methods that can be used to compose query expressions.
+              </para>
+              <para>
+                The functions do not provide any logic themselves but rather act as placeholders
+                and may be replaced by corresponding implementations before query execution,
+                given such implementations exists with the given linq provider.
+              </para>
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.DynamicQuery.VariableQueryArgument">
+            <summary>
+            This type is used to distinguish variable query arguments from constant query arguments.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.DynamicQuery.VariableQueryArgumentList">
+            <summary>
+            This type is used to distinguish variable query arguments from constant query arguments.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.DynamicQuery.VariableQueryArgument`1">
+            <summary>
+            This type is used to distinguish variable query arguments from constant query arguments.
+            </summary>
+            <typeparam name="T">Type of the query argument.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.EnumerableExtensions.AsQueryable``1(System.Collections.Generic.IEnumerable{``0},System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.EnumerableExtensions.ApplyQuery``1(System.Collections.Generic.IEnumerable{``0},Remote.Linq.IQuery{``0},System.Func{Remote.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression})">
+            <summary>
+            Applies this query instance to an enumerable.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.EnumerableExtensions.ApplyQuery``1(System.Collections.Generic.IEnumerable{``0},Remote.Linq.IQuery,System.Func{Remote.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression})">
+            <summary>
+            Applies this query instance to an enumerable.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{Remote.Linq.Expressions.Expression,Remote.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{Remote.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Replace expression transformtion logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{System.Linq.Expressions.Expression,System.Object})">
+            <summary>
+            Replace expression execution logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{System.Object,System.Object})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{System.Object,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Replace result transformation logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionContextExtensions.With(Remote.Linq.Expressions.ExpressionExecutionContext,System.Func{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject},System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{Remote.Linq.Expressions.Expression,Remote.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{Remote.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Replace expression transformtion logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{System.Linq.Expressions.Expression,System.Object})">
+            <summary>
+            Replace expression execution logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{System.Object,System.Object})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{System.Object,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Replace result transformation logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutionDecorator,System.Func{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject},System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{Remote.Linq.Expressions.Expression,Remote.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{Remote.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Replace expression transformtion logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{System.Linq.Expressions.Expression,System.Linq.Expressions.Expression})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{System.Linq.Expressions.Expression,System.Object})">
+            <summary>
+            Replace expression execution logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{System.Object,System.Object})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{System.Object,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Replace result transformation logic with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutionDecoratorExtensions.With(Remote.Linq.Expressions.ExpressionExecutor,System.Func{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject},System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}})">
+            <summary>
+            Decorate with custom strategy.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.#ctor(System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Expressions.ExpressionExecutor"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.Execute(Remote.Linq.Expressions.Expression)">
+            <summary>
+            Composes and executes the query based on the <see cref="T:Remote.Linq.Expressions.Expression"/> and mappes the result into dynamic objects.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be executed.</param>
+            <returns>The mapped result of the query execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.Prepare(Remote.Linq.Expressions.Expression)">
+            <summary>
+            Prepares the <see cref="T:Remote.Linq.Expressions.Expression"/> befor being transformed.<para/>
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/>.</param>
+            <returns>A <see cref="T:System.Linq.Expressions.Expression"/>.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.Transform(Remote.Linq.Expressions.Expression)">
+            <summary>
+            Transforms the <see cref="T:Remote.Linq.Expressions.Expression"/> to a <see cref="T:System.Linq.Expressions.Expression"/>.
+            </summary>
+            <param name="expression">The <see cref="T:Remote.Linq.Expressions.Expression"/> to be transformed.</param>
+            <returns>A <see cref="T:System.Linq.Expressions.Expression"/>.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.Prepare(System.Linq.Expressions.Expression)">
+            <summary>
+            Prepares the query <see cref="T:System.Linq.Expressions.Expression"/> to be able to be executed.
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> returned by the Transform method.</param>
+            <returns>A <see cref="T:System.Linq.Expressions.Expression"/> ready for execution.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.Execute(System.Linq.Expressions.Expression)">
+            <summary>
+            Executes the <see cref="T:System.Linq.Expressions.Expression"/> and returns the raw result.
+            </summary>
+            <remarks>
+            <see cref="T:System.InvalidOperationException"/> get handled for failing
+            <see cref="M:System.Linq.Queryable.Single``1(System.Linq.IQueryable{``0})"/> and
+            <see cref="M:System.Linq.Queryable.Single``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})"/>,
+            <see cref="M:System.Linq.Queryable.First``1(System.Linq.IQueryable{``0})"/>,
+            <see cref="M:System.Linq.Queryable.First``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})"/>,
+            <see cref="M:System.Linq.Queryable.Last``1(System.Linq.IQueryable{``0})"/>,
+            <see cref="M:System.Linq.Queryable.Last``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})"/>.
+            Instead of throwing an exception, an array with the length of zero respectively two elements is returned.
+            </remarks>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> to be executed.</param>
+            <returns>Execution result of the <see cref="T:System.Linq.Expressions.Expression"/> specified.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.ExecuteCore(System.Linq.Expressions.Expression)">
+            <summary>
+            Executes the <see cref="T:System.Linq.Expressions.Expression"/> and returns the raw result.
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> to be executed.</param>
+            <returns>Execution result of the <see cref="T:System.Linq.Expressions.Expression"/> specified.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.ProcessResult(System.Object)">
+            <summary>
+            If overriden in a derived transforms the collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="queryResult">The reult of the query execution.</param>
+            <returns>Processed result.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.ConvertResult(System.Object)">
+            <summary>
+            Converts the query result into a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="queryResult">The reult of the query execution.</param>
+            <returns>The mapped query result.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExecutor.ProcessResult(System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject})">
+            <summary>
+            If overriden in a derived transforms the collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+            <param name="queryResult">The reult of the query execution.</param>
+            <returns>Processed result.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExtensions.Execute(System.Linq.Expressions.Expression)">
+            <summary>
+            Executes the <see cref="T:System.Linq.Expressions.Expression"/> and returns the raw result.
+            </summary>
+            <param name="expression">The <see cref="T:System.Linq.Expressions.Expression"/> to be executed.</param>
+            <returns>Execution result of the <see cref="T:System.Linq.Expressions.Expression"/> specified.</returns>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExtensions.Execute(Remote.Linq.Expressions.Expression,System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver,System.Func{System.Object,System.Object},Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Composes and executes the query based on the <see cref="T:Remote.Linq.Expressions.Expression"/> and mappes the result into dynamic objects.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExtensions.ConvertResultToDynamicObjects(System.Object,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Type,System.Boolean})">
+            <summary>
+            Converts the query result into a collection of <see cref="T:Aqua.Dynamic.DynamicObject"/>.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Expressions.ExpressionExtensions.PrepareForExecution(Remote.Linq.Expressions.Expression,System.Func{System.Type,System.Linq.IQueryable},Aqua.TypeSystem.ITypeResolver,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Prepares the query <see cref="T:Remote.Linq.Expressions.Expression"/> to be able to be executed. <para/>
+            Use this method if you wan to execute the <see cref="T:System.Linq.Expressions.Expression"/> and map the raw result yourself.
+            </summary>
+        </member>
+        <member name="P:Remote.Linq.Expressions.LabelTarget.InstanceId">
+            <summary>
+            Gets or sets the instance id,
+            which is used to denote a specific instance of <see cref="T:System.Linq.Expressions.ParameterExpression"/> within an expression tree.
+            </summary>
+        </member>
+        <member name="P:Remote.Linq.Expressions.ParameterExpression.InstanceId">
+            <summary>
+            Gets or sets an instance id,
+            which is used to denote a specific instance of <see cref="T:System.Linq.Expressions.ParameterExpression"/> within an expression tree.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.And``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
+            <summary>
+            Combines two predicates with boolean AND. In case of one expression is null, the other is returned without being combined.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.Or``1(System.Func{``0,System.Boolean},System.Func{``0,System.Boolean})">
+            <summary>
+            Combines two predicates with boolean OR. In case of one expression is null, the other is returned without being combined.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToRemoteLinqExpression(System.Linq.Expressions.Expression,Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Translates a given expression into a remote linq expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToRemoteLinqExpression(System.Linq.Expressions.LambdaExpression,Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Translates a given lambda expression into a remote linq expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression(Remote.Linq.Expressions.Expression)">
+            <summary>
+            Translates a given query expression into an expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression(Remote.Linq.Expressions.Expression,Aqua.TypeSystem.ITypeResolver)">
+            <summary>
+            Translates a given query expression into an expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression``2(Remote.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Translates a given query expression into a lambda expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression``1(Remote.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Translates a given query expression into a lambda expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression(Remote.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Translates a given query expression into a lambda expression.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionTranslator.ToLinqExpression(Remote.Linq.Expressions.LambdaExpression,Aqua.TypeSystem.ITypeResolver)">
+            <summary>
+            Translates a given query expression into a lambda expression.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.ExpressionVisitors.ExpressionEvaluator">
+            <summary>
+            Enables the partial evalutation of queries.
+            From http://msdn.microsoft.com/en-us/library/bb546158.aspx.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.ExpressionVisitors.ExpressionEvaluator.PartialEval(System.Linq.Expressions.Expression,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Performs evaluation and replacement of independent sub-trees.
+            </summary>
+            <param name="expression">The root of the expression tree.</param>
+            <param name="canBeEvaluatedLocally">A function that decides whether a given expression node can be evaluated locally, assumes true if no function defined.</param>
+            <returns>A new tree with sub-trees evaluated and replaced.</returns>
+        </member>
+        <member name="T:Remote.Linq.ExpressionVisitors.ExpressionEvaluator.SubtreeEvaluator">
+            <summary>
+            Evaluates and replaces sub-trees when first candidate is reached (top-down).
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.ExpressionVisitors.ExpressionEvaluator.Nominator">
+            <summary>
+            Performs bottom-up analysis to determine which nodes can possibly
+            be part of an evaluated sub-tree.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.ExpressionVisitors.ExpressionVisitorBase">
+            <summary>
+            From http://msdn.microsoft.com/en-us/library/bb882521.aspx.
+            </summary>
+            <remarks>
+            In this expression tree visitor implementation, the Visit method, which should be called first,
+            dispatches the expression it is passed to one of the more specialized visitor methods in the class,
+            based on the type of the expression. The specialized visitor methods visit the sub-tree of the
+            expression they are passed. If a sub-expression changes after it has been visited, for example by
+            an overriding method in a derived class, the specialized visitor methods create a new expression
+            that includes the changes in the sub-tree. Otherwise, they return the expression that they were passed.
+            This recursive behavior enables a new expression tree to be built that either is the same as or a
+            modified version of the original expression that was passed to Visit.
+            </remarks>
+        </member>
+        <member name="M:Remote.Linq.ExpressionVisitors.SystemExpressionReWriter.SimplifyIncorporationOfRemoteQueryables(System.Linq.Expressions.Expression)">
+            <summary>
+            Replace complicated access to <see cref="T:Remote.Linq.IRemoteQueryable"/> by simple <see cref="T:System.Linq.Expressions.ConstantExpression"/>.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.IOrderedQuery.ThenBy(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+            </summary>
+            <param name="sortExpression">A sort expression to extract a key from each element and define a sort direction.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IOrderedQuery.ThenByDescending(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
+            </summary>
+            <param name="sortExpression">A sort expression to extract a key from each element and define a sort direction.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IOrderedQuery`1.ThenBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from each element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IOrderedQuery`1.ThenByDescending``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from each element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery.Where(Remote.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>
+            <param name="predicate">A lambda expression to test each element for a condition.</param>
+        </member>
+        <member name="M:Remote.Linq.IQuery.OrderBy(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Sorts the elements of a sequence in ascending order according to a key.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.IQuery.OrderByDescending(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Sorts the elements of a sequence in descending order according to a key.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.IQuery.Skip(System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>
+            <param name="count">The number of elements to skip before returning the remaining elements.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery.Take(System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>
+            <param name="count">The number of elements to return.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery`1.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Sorts the elements of a sequence in ascending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function that is represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery`1.OrderByDescending``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Sorts the elements of a sequence in descending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function that is represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery`1.Skip(System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>
+            <param name="count">The number of elements to skip before returning the remaining elements.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.IQuery`1.Take(System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>
+            <param name="count">The number of elements to return.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Query"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query.#ctor(System.Type,System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.LambdaExpression},System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.SortExpression},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Query"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query.#ctor(Aqua.TypeSystem.TypeInfo,System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.LambdaExpression},System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.SortExpression},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Query"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query.Where(Remote.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>
+            <param name="predicate">A lambda expression to test each element for a condition.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.OrderBy(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Sorts the elements of a sequence in ascending order according to a key.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query.OrderByDescending(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Sorts the elements of a sequence in descending order according to a key.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query.Remote#Linq#IOrderedQuery#ThenBy(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+            </summary>
+            <param name="sortExpression">A sort expression to extract a key from each element and define a sort direction.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.Remote#Linq#IOrderedQuery#ThenByDescending(Remote.Linq.Expressions.SortExpression)">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
+            </summary>
+            <param name="sortExpression">A sort expression to extract a key from each element and define a sort direction.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.Skip(System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>
+            <param name="count">The number of elements to skip before returning the remaining elements.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.Take(System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>
+            <param name="count">The number of elements to return.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query.CreateFromGeneric``1(Remote.Linq.IQuery{``0})">
+            <summary>
+            Creates a non-generic version of the specified query instance.
+            </summary>
+            <param name="query">The query instance to be converted into a non-generc query object.</param>
+            <returns>A non-generic version of the specified query instance.</returns>
+        </member>
+        <member name="M:Remote.Linq.QueryableExtensions.AsQueryable``1(System.Linq.IQueryable{``0},System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.QueryableExtensions.AsQueryable``1(System.Linq.IQueryable,System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.QueryableExtensions.AsQueryable(System.Linq.IQueryable,System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper)">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.QueryableExtensions.ApplyQuery``1(System.Linq.IQueryable{``0},Remote.Linq.IQuery{``0},System.Func{Remote.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression})">
+            <summary>
+            Applies this query instance to a queryable.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.QueryableExtensions.ApplyQuery``1(System.Linq.IQueryable{``0},Remote.Linq.IQuery,System.Func{Remote.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression})">
+            <summary>
+            Applies this query instance to a queryable.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Query`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query`1.#ctor(System.Func{Remote.Linq.Query{`0},System.Collections.Generic.IEnumerable{`0}},System.Func{System.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression},System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.LambdaExpression},System.Collections.Generic.IEnumerable{Remote.Linq.Expressions.SortExpression},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Remote.Linq.Query`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.Query`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Filters a sequence of values based on a predicate.
+            </summary>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.OrderBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Sorts the elements of a sequence in ascending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function that is represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.OrderByDescending``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Sorts the elements of a sequence in descending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function that is represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from an element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.Remote#Linq#IOrderedQuery{T}#ThenBy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in ascending order according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from each element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.Remote#Linq#IOrderedQuery{T}#ThenByDescending``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Performs a subsequent ordering of the elements in a sequence in descending order, according to a key.
+            </summary>
+            <typeparam name="TKey">The type of the key returned by the function represented by keySelector.</typeparam>
+            <param name="keySelector">A function to extract a key from each element.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.Skip(System.Int32)">
+            <summary>
+            Bypasses a specified number of elements in a sequence and then returns the remaining elements.
+            </summary>
+            <param name="count">The number of elements to skip before returning the remaining elements.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.Take(System.Int32)">
+            <summary>
+            Returns a specified number of contiguous elements from the start of a sequence.
+            </summary>
+            <param name="count">The number of elements to return.</param>
+            <returns>A new query instance containing all specified query parameters.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.GetEnumerator">
+            <summary>
+            Enumerating the query actually invokes the data provider to retrieve data.
+            </summary>
+            <returns>The data retrieved from the data provider.</returns>
+        </member>
+        <member name="M:Remote.Linq.Query`1.CreateFromNonGeneric(Remote.Linq.IQuery,System.Func{Remote.Linq.Query{`0},System.Collections.Generic.IEnumerable{`0}},System.Func{System.Linq.Expressions.LambdaExpression,Remote.Linq.Expressions.LambdaExpression},Aqua.TypeSystem.ITypeResolver)">
+            <summary>
+            Creates a generic version of the specified query instance.
+            </summary>
+        </member>
+        <member name="P:Remote.Linq.RemoteQueryable.Factory">
+            <summary>
+            Gets a factory for creating <see cref="T:System.Linq.IQueryable`1"/>
+            (or <see cref="T:System.Linq.IQueryable"/> respectively) suited for remote execution.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create(System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create``1(System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create(System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Object},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create``1(System.Func{Remote.Linq.Expressions.Expression,System.Object},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create``1(System.Type,System.Func{Remote.Linq.Expressions.Expression,``0},Remote.Linq.IQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryable.Create``2(System.Func{Remote.Linq.Expressions.Expression,``1},Remote.Linq.IQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="T:Remote.Linq.RemoteQueryableFactory">
+            <summary>
+            Provides factory methods for creating <see cref="T:System.Linq.IQueryable`1"/>
+            (or <see cref="T:System.Linq.IQueryable"/> respectively) suited for remote execution.
+            The methods on this class are accessed via Remote.Linq.RemoteQueryable.Factory.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Object},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Object},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,``0},Remote.Linq.IQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``2(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,``1},Remote.Linq.IQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1"/> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``0}},Remote.Linq.IAsyncQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}},Remote.Linq.IAsyncQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``2(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``1}},Remote.Linq.IAsyncQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateQueryable``2(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},Remote.Linq.IAsyncQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{Aqua.Dynamic.DynamicObject}}},Aqua.TypeSystem.ITypeInfoProvider,Aqua.Dynamic.IDynamicObjectMapper,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{System.Object}},Aqua.TypeSystem.ITypeInfoProvider,Remote.Linq.IAsyncQueryResultMapper{System.Object},System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1"/> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``0}},Remote.Linq.IAsyncQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``1(Remote.Linq.RemoteQueryableFactory,System.Type,System.Func{Remote.Linq.Expressions.Expression,System.Threading.CancellationToken,System.Threading.Tasks.Task{``0}},Remote.Linq.IAsyncQueryResultMapper{``0},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``2(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.Tasks.Task{``1}},Remote.Linq.IAsyncQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.RemoteQueryableFactoryExtensions.CreateAsyncQueryable``2(Remote.Linq.RemoteQueryableFactory,System.Func{Remote.Linq.Expressions.Expression,System.Threading.CancellationToken,System.Threading.Tasks.Task{``1}},Remote.Linq.IAsyncQueryResultMapper{``1},Aqua.TypeSystem.ITypeInfoProvider,System.Func{System.Linq.Expressions.Expression,System.Boolean})">
+            <summary>
+            Creates an instance of <see cref="T:System.Linq.IQueryable`1" /> that utilizes the data provider specified.
+            </summary>
+            <typeparam name="T">Element type of the <see cref="T:System.Linq.IQueryable`1"/>.</typeparam>
+            <typeparam name="TSource">Data type served by the data provider.</typeparam>
+        </member>
+        <member name="M:Remote.Linq.TestSupport.EnumerableExtensions.AsRemoteQueryable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            !!! For unit testing only !!! <br />
+            Creates an <see cref="T:Remote.Linq.IAsyncRemoteQueryable`1"/> type wrapping test data.
+            </summary>
+        </member>
+        <member name="T:Remote.Linq.TestSupport.TaskAsyncQueryProvider">
+            <summary>
+            <see cref="T:Remote.Linq.TestSupport.TaskAsyncQueryProvider"/> mimics expression execution as like in a client-server-round-trip using remote linq,
+            allowing to wrap local test data in a <see cref="T:Remote.Linq.IAsyncRemoteQueryable`1"/> type.
+            </summary>
+        </member>
+    </members>
+</doc>
