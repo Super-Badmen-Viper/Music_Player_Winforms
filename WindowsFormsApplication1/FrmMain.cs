@@ -757,7 +757,8 @@ namespace Music_Player_Test
                     }
                     else
                     {
-                        BackgroundImage = new Bitmap(PhotoPath);//提供路径将图片转化为矩阵图  
+                        if(File.Exists(PhotoPath))
+                            BackgroundImage = new Bitmap(PhotoPath);//提供路径将图片转化为矩阵图  
                     }
 
                     //切换歌曲时清空上一首残留
@@ -1067,13 +1068,15 @@ namespace Music_Player_Test
                         else
                         {
                             Temp_Image = global::Music_Player_Test.Properties.Resources.唱片3;
+                            if (File.Exists(PhotoPath))
+                            {
+                                BackgroundImage = new Bitmap(PhotoPath);
 
-                            BackgroundImage = new Bitmap(PhotoPath);
+                                image = Temp_Image;
+                                Change_GUI_Pic_Image_Size();
 
-                            image = Temp_Image;
-                            Change_GUI_Pic_Image_Size();
-
-                            Open_SongPicPath_Nums = 0;
+                                Open_SongPicPath_Nums = 0;
+                            }
                         }
 
                         Two_Singer_Pic.Stop();
@@ -1736,24 +1739,30 @@ namespace Music_Player_Test
         /// </summary>
         public void label_Text_Clear()
         {
-
-            //检测专辑图片是否开启
-            picSelect();
-
-            //检测要切换的背景图片是否存在，不存在则指定为系统默认图片
-            SingerPicPath = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\singerPhoto\" + singer_Name + ".jpg");//获取歌手图片所在路径  
-            if (File.Exists(SingerPicPath))
+            try
             {
-                backgroung = new Bitmap(SingerPicPath);
-                BackgroundImage = backgroung;//将当前显示在pictuerbox框的image矩阵图转化为背景图片
-            }
-            else
-            {
-                BackgroundImage = new Bitmap(PhotoPath);//提供路径将图片转化为矩阵图  
-            }
+                //检测专辑图片是否开启
+                picSelect();
 
-            //清空所有的歌词Text
-            Clear_Null_KRC("ALL");
+                //检测要切换的背景图片是否存在，不存在则指定为系统默认图片
+                SingerPicPath = Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\singerPhoto\" + singer_Name + ".jpg");//获取歌手图片所在路径  
+                if (File.Exists(SingerPicPath))
+                {
+                    backgroung = new Bitmap(SingerPicPath);
+                    BackgroundImage = backgroung;//将当前显示在pictuerbox框的image矩阵图转化为背景图片
+                }
+                else
+                {
+                    BackgroundImage = new Bitmap(PhotoPath);//提供路径将图片转化为矩阵图  
+                }
+
+                //清空所有的歌词Text
+                Clear_Null_KRC("ALL");
+            }
+            catch
+            {
+
+            }
         }
 
 
@@ -3592,12 +3601,20 @@ namespace Music_Player_Test
 
             MV_name = Temps_String;
 
-            this.axWindowsMediaPlayer2.URL = string.Format(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\song_MV\" + MV_name));
+            if (File.Exists(string.Format(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\song_MV\" + MV_name))))
+            {
+                this.axWindowsMediaPlayer2.URL = string.Format(Path.GetFullPath(AppDomain.CurrentDomain.BaseDirectory + @"\song_MV\" + MV_name));
 
-            axWindowsMediaPlayer2.Ctlcontrols.play();
+                axWindowsMediaPlayer2.Ctlcontrols.play();
 
-            this.axWindowsMediaPlayer1.Hide();
-            Hide_Song();
+                this.axWindowsMediaPlayer1.Hide();
+                Hide_Song();
+            }
+            else
+            {
+                MessageBox.Show("未在SongMv文件夹内找到相关资源，请放置同名MV资源至SongMv，视频格式为mkv");
+                this.axWindowsMediaPlayer2.Hide();
+            }
         }
 
         #endregion
