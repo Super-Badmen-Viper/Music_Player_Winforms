@@ -208,6 +208,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Interop.Shell32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Music_Player.ico" />
     <None Include="Resources\player.png" />
     <None Include="Resources\撞针.png" />
